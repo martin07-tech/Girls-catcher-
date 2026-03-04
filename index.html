@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RizzLab</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>RizzLab</h1>
+    <p>Train Your Nerves. Control The Room.</p>
+  </header>
+
+  <main>
+    <section id="dashboard">
+      <h2>Dashboard</h2>
+      <p>Level: <span id="level">1</span></p>
+      <p>Streak: <span id="streak">0</span></p>
+      <p>Fear Score: <span id="fearScore">5</span></p>
+      <button id="dailyMissionBtn">Start Daily Mission</button>
+    </section>
+
+    <section id="scenarioEngine" style="display:none;">
+      <h2>Scenario</h2>
+      <p id="scenarioText"></p>
+      <div id="options"></div>
+      <button id="nextScenarioBtn" style="display:none;">Next Scenario</button>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
