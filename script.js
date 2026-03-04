@@ -281,3 +281,29 @@ let dailyMissions = [
   "Comment on someone's post positively",
   "Invite someone to join a small challenge"
 ];
+const fearMeter = document.getElementById("fearMeter");
+const streakMeter = document.getElementById("streakMeter");
+
+function updateMeters(){
+  // Fear bar: if fearScore max is 10
+  let fearPercent = Math.min(fearScore*10, 100);
+  fearMeter.style.width = fearPercent + "%";
+  
+  // Streak bar: show progress to next 5 streaks
+  let streakPercent = (streak%5)*20; // 5 streaks = full bar
+  streakMeter.style.width = streakPercent + "%";
+}
+
+// Call this in updateDashboard
+function updateDashboard(){
+  levelSpan.textContent = level;
+  streakSpan.textContent = streak;
+  fearScoreSpan.textContent = fearScore;
+  levelNameSpan.textContent = getLevelName(level);
+  localStorage.setItem("streak", streak);
+  localStorage.setItem("fearScore", fearScore);
+  localStorage.setItem("level", level);
+  dailyMissionText.textContent = dailyMissions[Math.floor(Math.random()*dailyMissions.length)];
+  
+  updateMeters(); // update meter bars
+}
