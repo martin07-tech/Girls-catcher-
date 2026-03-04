@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Girl Catcher Ultimate</title>
+<title>Girls Catcher Ultimate</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -20,22 +20,23 @@
     <p>Level Name: <span id="levelName">Observer</span></p>
     <p>Streak: <span id="streak">0</span></p>
     <p>Fear Score: <span id="fearScore">5</span></p>
-<div id="meters">
-  <div>
-    <p>Fear:</p>
-    <div class="meter">
-      <div id="fearMeter" class="meter-fill"></div>
-    </div>
-  </div>
-  <div>
-    <p>Streak:</p>
-    <div class="meter">
-      <div id="streakMeter" class="meter-fill"></div>
-    </div>
-  </div>
-</div>
     <p>Daily Mission: <span id="dailyMissionText">Complete a mission to train your nerves</span></p>
     <button id="dailyMissionBtn">Start Mission</button>
+
+    <div id="meters">
+      <div>
+        <p>Fear:</p>
+        <div class="meter">
+          <div id="fearMeter" class="meter-fill"></div>
+        </div>
+      </div>
+      <div>
+        <p>Streak:</p>
+        <div class="meter">
+          <div id="streakMeter" class="meter-fill"></div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <section id="scenarioEngine" style="display:none;">
@@ -44,6 +45,9 @@
     <div id="options"></div>
     <button id="nextScenarioBtn" style="display:none;">Next Scenario</button>
   </section>
+
+  <!-- Confetti canvas -->
+  <canvas id="confettiCanvas"></canvas>
 </main>
 
 <script src="script.js"></script>
