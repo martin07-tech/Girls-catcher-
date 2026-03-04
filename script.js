@@ -1,67 +1,74 @@
-// ======== SCENARIOS ========
+// ===== SCENARIOS =====
 let scenarios = [
-  { text: "She replies 'lol' to your message.", options:[
-    {reply:"Keep it cool.", feedback:"Neutral response, maintains frame.", score:1},
-    {reply:"Why are you laughing?", feedback:"Weak. Shows insecurity.", score:-1},
-    {reply:"Haha, good one.", feedback:"Safe, but boring.", score:0}
+  {text:"She replies 'lol' to your message.", options:[
+    {reply:"Keep it cool.", feedback:"Neutral, maintains frame.", score:1},
+    {reply:"Why are you laughing?", feedback:"Weak, insecure.", score:-1},
+    {reply:"Haha, good one.", feedback:"Safe, boring.", score:0}
   ]},
-  { text: "She says 'I have a boyfriend'.", options:[
-    {reply:"Respect, see you around.", feedback:"Good frame, no chasing.", score:2},
-    {reply:"Can I still take you out?", feedback:"Bad. Chasing.", score:-2},
+  {text:"She says 'I have a boyfriend'.", options:[
+    {reply:"Respect, see you around.", feedback:"Good frame.", score:2},
+    {reply:"Can I still take you out?", feedback:"Chasing, weak.", score:-2},
     {reply:"Oh, okay.", feedback:"Neutral, safe.", score:0}
   ]},
-  { text: "She leaves you on seen for 2 hours.", options:[
-    {reply:"Cool, busy day huh?", feedback:"Neutral, maintains frame.", score:1},
-    {reply:"Why didn't you reply?", feedback:"Bad, desperate.", score:-1},
-    {reply:"You're ignoring me?", feedback:"Weak, insecure.", score:-2}
+  {text:"She leaves you on seen for 2 hours.", options:[
+    {reply:"Cool, busy day huh?", feedback:"Maintains frame.", score:1},
+    {reply:"Why didn't you reply?", feedback:"Weak, desperate.", score:-1},
+    {reply:"You're ignoring me?", feedback:"Insecure.", score:-2}
   ]},
-  { text: "She says 'You're funny!'", options:[
-    {reply:"Thanks! You too.", feedback:"Good, keeps balance.", score:1},
-    {reply:"Just kidding, I'm serious.", feedback:"Confusing, bad frame.", score:-1},
+  {text:"She says 'You're funny!'", options:[
+    {reply:"Thanks! You too.", feedback:"Good, balanced.", score:1},
+    {reply:"Just kidding, I'm serious.", feedback:"Confusing.", score:-1},
     {reply:"Haha, glad you think so.", feedback:"Neutral.", score:0}
   ]},
-  { text: "She asks 'Do you like me?'", options:[
-    {reply:"I like getting to know you.", feedback:"Good, confident but safe.", score:2},
-    {reply:"Yeah, a lot!", feedback:"Too eager, weak frame.", score:-1},
+  {text:"She asks 'Do you like me?'", options:[
+    {reply:"I like getting to know you.", feedback:"Confident, safe.", score:2},
+    {reply:"Yeah, a lot!", feedback:"Too eager.", score:-1},
     {reply:"Why do you ask?", feedback:"Neutral, curious.", score:0}
   ]},
-  { text: "She teases you playfully.", options:[
-    {reply:"Haha, you got me!", feedback:"Good, playful response.", score:1},
-    {reply:"Stop joking.", feedback:"Too serious, weak frame.", score:-1},
-    {reply:"You're mean!", feedback:"Weak, insecure.", score:-2}
+  {text:"She teases you playfully.", options:[
+    {reply:"Haha, you got me!", feedback:"Good, playful.", score:1},
+    {reply:"Stop joking.", feedback:"Serious, weak.", score:-1},
+    {reply:"You're mean!", feedback:"Insecure.", score:-2}
   ]},
-  { text: "She compliments your style.", options:[
-    {reply:"Thanks, I like your style too.", feedback:"Good, mutual respect.", score:1},
-    {reply:"I know, right?", feedback:"Arrogant, weak frame.", score:-1},
-    {reply:"Thanks.", feedback:"Neutral, safe.", score:0}
+  {text:"She compliments your style.", options:[
+    {reply:"Thanks, I like your style too.", feedback:"Good, mutual.", score:1},
+    {reply:"I know, right?", feedback:"Arrogant.", score:-1},
+    {reply:"Thanks.", feedback:"Neutral.", score:0}
   ]},
-  { text: "She ignores your joke.", options:[
-    {reply:"No worries, maybe next time.", feedback:"Keeps frame, confident.", score:1},
-    {reply:"Why didn't you laugh?", feedback:"Weak, insecure.", score:-1},
+  {text:"She ignores your joke.", options:[
+    {reply:"No worries, maybe next time.", feedback:"Confident.", score:1},
+    {reply:"Why didn't you laugh?", feedback:"Insecure.", score:-1},
     {reply:"Okay then.", feedback:"Neutral.", score:0}
   ]},
-  { text: "She sends a meme.", options:[
-    {reply:"Haha, good one!", feedback:"Neutral, maintains fun.", score:1},
-    {reply:"I don't get it.", feedback:"Weak, boring.", score:-1},
-    {reply:"Nice.", feedback:"Safe, neutral.", score:0}
+  {text:"She sends a meme.", options:[
+    {reply:"Haha, good one!", feedback:"Neutral, fun.", score:1},
+    {reply:"I don't get it.", feedback:"Boring.", score:-1},
+    {reply:"Nice.", feedback:"Safe.", score:0}
   ]},
-  { text: "She challenges you to a bet.", options:[
+  {text:"She challenges you to a bet.", options:[
     {reply:"You're on!", feedback:"Confident, playful.", score:2},
-    {reply:"I can't lose.", feedback:"Weak, scared.", score:-1},
-    {reply:"Maybe later.", feedback:"Neutral, avoids challenge.", score:0}
+    {reply:"I can't lose.", feedback:"Weak.", score:-1},
+    {reply:"Maybe later.", feedback:"Neutral.", score:0}
   ]}
 ];
 
-// ======== DAILY MISSIONS ========
+// Add more scenarios up to 50+ as you expand
+
+// ===== DAILY MISSIONS =====
 let dailyMissions = [
   "Say hi to a stranger today",
   "Hold eye contact for 3 seconds with someone",
   "Give a genuine compliment",
-  "Start a short conversation with someone",
+  "Start a short conversation",
   "Smile at someone today",
-  "Send a friendly text to someone you haven't talked to in a while"
+  "Send a friendly text to someone you haven't talked to in a while",
+  "Ask someone a question about their day",
+  "Offer help to someone",
+  "Share a funny story with someone",
+  "Initiate a small talk with a stranger"
 ];
 
+// ===== GLOBAL VARIABLES =====
 let currentScenario = 0;
 let streak = parseInt(localStorage.getItem("streak")) || 0;
 let fearScore = parseInt(localStorage.getItem("fearScore")) || 5;
@@ -76,29 +83,37 @@ const levelSpan = document.getElementById("level");
 const streakSpan = document.getElementById("streak");
 const fearScoreSpan = document.getElementById("fearScore");
 const dailyMissionText = document.getElementById("dailyMissionText");
+const levelNameSpan = document.getElementById("levelName");
 
-// ======== DASHBOARD UPDATE ========
+// ===== LEVEL NAMES =====
+function getLevelName(level){
+  if(level<=5) return "Observer";
+  if(level<=10) return "Initiator";
+  if(level<=15) return "Composed";
+  if(level<=20) return "Social Assassin";
+  return "Legend";
+}
+
+// ===== UPDATE DASHBOARD =====
 function updateDashboard(){
   levelSpan.textContent = level;
   streakSpan.textContent = streak;
   fearScoreSpan.textContent = fearScore;
+  levelNameSpan.textContent = getLevelName(level);
   localStorage.setItem("streak", streak);
   localStorage.setItem("fearScore", fearScore);
   localStorage.setItem("level", level);
-
-  // Random daily mission
-  let randomMission = dailyMissions[Math.floor(Math.random()*dailyMissions.length)];
-  dailyMissionText.textContent = randomMission;
+  dailyMissionText.textContent = dailyMissions[Math.floor(Math.random()*dailyMissions.length)];
 }
 
-// ======== START DAILY MISSION ========
+// ===== START MISSION =====
 dailyMissionBtn.addEventListener("click", ()=>{
   document.getElementById("dashboard").style.display="none";
   scenarioEngine.style.display="block";
   loadScenario();
 });
 
-// ======== LOAD SCENARIO ========
+// ===== LOAD SCENARIO =====
 function loadScenario(){
   let scenario = scenarios[currentScenario];
   scenarioText.textContent = scenario.text;
@@ -117,7 +132,7 @@ function loadScenario(){
   });
 }
 
-// ======== SHOW FEEDBACK ========
+// ===== SHOW FEEDBACK =====
 function showFeedback(index){
   let feedbackText = document.createElement("p");
   feedbackText.textContent = scenarios[currentScenario].options[index].feedback;
@@ -125,7 +140,7 @@ function showFeedback(index){
   nextScenarioBtn.style.display="block";
 }
 
-// ======== NEXT SCENARIO ========
+// ===== NEXT SCENARIO =====
 nextScenarioBtn.addEventListener("click", ()=>{
   nextScenarioBtn.style.display="none";
   currentScenario++;
