@@ -1,55 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Girls Catcher Ultimate</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Modern Lead | Master the Art of Connection</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-  <h1>Girls Catcher</h1>
-  <p>Train Your Nerves. Control The Room.</p>
-</header>
+    <header>
+        <nav>
+            <div class="logo">MODERN<span>LEAD</span></div>
+            <ul>
+                <li><a href="#about">The Philosophy</a></li>
+                <li><a href="#pillars">The Pillars</a></li>
+                <li><a href="#review">Profile Check</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<main>
-  <section id="dashboard">
-    <h2>Dashboard</h2>
-    <p>Level: <span id="level">1</span></p>
-    <p>Level Name: <span id="levelName">Observer</span></p>
-    <p>Streak: <span id="streak">0</span></p>
-    <p>Fear Score: <span id="fearScore">5</span></p>
-    <p>Daily Mission: <span id="dailyMissionText">Complete a mission to train your nerves</span></p>
-    <button id="dailyMissionBtn">Start Mission</button>
-
-    <div id="meters">
-      <div>
-        <p>Fear:</p>
-        <div class="meter">
-          <div id="fearMeter" class="meter-fill"></div>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Master the Art of Connection</h1>
+            <p>Stop chasing. Start attracting. Build the lifestyle, confidence, and social skills that make you stand out.</p>
+            <a href="#pillars" class="btn">Explore the Playbook</a>
         </div>
-      </div>
-      <div>
-        <p>Streak:</p>
-        <div class="meter">
-          <div id="streakMeter" class="meter-fill"></div>
+    </section>
+
+    <section id="pillars" class="pillars">
+        <h2>The Core Pillars</h2>
+        <div class="card-container">
+            <div class="card">
+                <h3>The Self</h3>
+                <p>Master grooming, fitness, and style to build unshakeable internal confidence.</p>
+            </div>
+            <div class="card">
+                <h3>The Social</h3>
+                <p>Learn natural conversation and body language that builds genuine attraction.</p>
+            </div>
+            <div class="card">
+                <h3>The Digital</h3>
+                <p>Optimize your online presence to showcase your best, most authentic self.</p>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="scenarioEngine" style="display:none;">
-    <h2>Scenario</h2>
-    <p id="scenarioText"></p>
-    <div id="options"></div>
-    <button id="nextScenarioBtn" style="display:none;">Next Scenario</button>
-  </section>
+    <section id="review" class="interactive">
+        <h2>Quick Profile Check</h2>
+        <p>Enter your current dating bio below for an instant "Vibe Check."</p>
+        <textarea id="bioInput" placeholder="Paste your bio here..."></textarea>
+        <button onclick="analyzeBio()" class="btn">Analyze Bio</button>
+        <div id="feedback" class="feedback-box"></div>
+    </section>
 
-  <!-- Confetti canvas -->
-  <canvas id="confettiCanvas"></canvas>
-</main>
+    <footer>
+        <p>&copy; 2026 Modern Lead Studio. Elevate your standard.</p>
+    </footer>
 
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
