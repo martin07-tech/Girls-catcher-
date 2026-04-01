@@ -1,17 +1,32 @@
-function analyzeBio() {
-    const bio = document.getElementById('bioInput').value.toLowerCase();
-    const feedback = document.getElementById('feedback');
+let currentXP = 1250;
+let missionsDone = 12;
 
-    if (bio.length < 10) {
-        feedback.innerText = "Too short. Give them a reason to be curious!";
-        return;
-    }
+function showPage(pageId) {
+    // Hide all pages
+    document.getElementById('landing-page').style.display = 'none';
+    document.getElementById('portal-page').style.display = 'none';
+    document.getElementById('success-page').style.display = 'none';
+    document.getElementById('legal-page').style.display = 'none';
 
-    if (bio.includes("pizza") || bio.includes("hiking")) {
-        feedback.innerText = "Status: Cliché. Try to be more specific about what you enjoy!";
-    } else if (bio.includes("don't") || bio.includes("not looking")) {
-        feedback.innerText = "Status: Negative. Focus on what you DO want, not what you don't.";
-    } else {
-        feedback.innerText = "Status: Promising. Make sure your photos match this energy!";
-    }
+    // Show selected page
+    document.getElementById(pageId + '-page').style.display = pageId === 'portal' ? 'flex' : 'block';
+    
+    // Scroll to top
+    window.scrollTo(0,0);
+}
+
+function completeMission(btn, xp) {
+    if(btn.disabled) return;
+    
+    btn.innerText = "✓ AWARDED";
+    btn.style.background = "#28a745";
+    btn.disabled = true;
+
+    // Update XP
+    currentXP += xp;
+    missionsDone += 1;
+    document.getElementById('userXP').innerText = currentXP;
+    document.getElementById('userMissions').innerText = missionsDone + " Missions";
+
+    alert(`Mission Complete! +${xp} XP Added to your profile.`);
 }
