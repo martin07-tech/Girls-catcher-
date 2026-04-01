@@ -3,59 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Modern Lead | Master the Art of Connection</title>
+    <title>MODERN LEAD | The Elite Social Blueprint</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <header>
+    <div id="landing-page">
         <nav>
             <div class="logo">MODERN<span>LEAD</span></div>
-            <ul>
-                <li><a href="#about">The Philosophy</a></li>
-                <li><a href="#pillars">The Pillars</a></li>
-                <li><a href="#review">Profile Check</a></li>
-            </ul>
+            <div class="nav-links">
+                <a href="#membership">Membership</a>
+                <a href="#" onclick="showPage('portal')">Client Login</a>
+            </div>
         </nav>
-    </header>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Master the Art of Connection</h1>
-            <p>Stop chasing. Start attracting. Build the lifestyle, confidence, and social skills that make you stand out.</p>
-            <a href="#pillars" class="btn">Explore the Playbook</a>
+        <section class="hero">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <span class="badge">Exclusive Access</span>
+                <h1>Stop Guessing. <br>Start <span class="accent">Leading.</span></h1>
+                <p>The world's most comprehensive social intelligence platform for the modern man. We don't teach "tricks"—we build icons.</p>
+                <div class="hero-btns">
+                    <a href="#membership" class="btn-primary">Join the Inner Circle</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="membership" class="pricing">
+            <h2 class="section-title">Choose Your Path</h2>
+            <div class="price-grid">
+                <div class="price-card">
+                    <h3>The Apprentice</h3>
+                    <div class="price">$29<span>/mo</span></div>
+                    <ul>
+                        <li>Weekly Social Drills</li>
+                        <li>Basic Profile Audit</li>
+                        <li>Community Discord Access</li>
+                    </ul>
+                    <button class="btn-outline" onclick="showPage('success')">Start Growth</button>
+                </div>
+                <div class="price-card featured">
+                    <div class="pop-tag">Most Popular</div>
+                    <h3>The Strategist</h3>
+                    <div class="price">$79<span>/mo</span></div>
+                    <ul>
+                        <li>The "Attraction" Masterclass</li>
+                        <li>Monthly AI Bio Analysis</li>
+                        <li>Private Networking Events</li>
+                        <li>Direct DM Support</li>
+                    </ul>
+                    <button class="btn-primary" onclick="showPage('success')">Claim Spot</button>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 Modern Lead Studio. <a href="#" onclick="showPage('legal')">Terms & Privacy</a></p>
+        </footer>
+    </div>
+
+    <div id="success-page" style="display:none;">
+        <div class="success-container">
+            <div class="success-box">
+                <div class="check-icon">✓</div>
+                <h1>Welcome to the Elite.</h1>
+                <p>Your status is now active. Access the portal below.</p>
+                <button class="btn-primary" onclick="showPage('portal')">Enter Member Portal</button>
+            </div>
         </div>
-    </section>
+    </div>
 
-    <section id="pillars" class="pillars">
-        <h2>The Core Pillars</h2>
-        <div class="card-container">
-            <div class="card">
-                <h3>The Self</h3>
-                <p>Master grooming, fitness, and style to build unshakeable internal confidence.</p>
+    <div id="portal-page" style="display:none;" class="portal-body">
+        <aside class="sidebar">
+            <div class="sidebar-logo">ML<span>PRO</span></div>
+            <nav class="sidebar-nav">
+                <a href="#" class="active">📊 Dashboard</a>
+                <a href="#" onclick="alert('Masterclass Video Loading...')">🎥 Masterclasses</a>
+                <a href="#" onclick="alert('Opening Community...')">🤝 Community</a>
+                <a href="#" onclick="showPage('landing')">🚪 Logout</a>
+            </nav>
+            <div class="user-profile">
+                <div class="avatar">JD</div>
+                <div class="user-info">
+                    <p class="name">John Doe</p>
+                    <p class="status">Strategist Tier</p>
+                </div>
             </div>
-            <div class="card">
-                <h3>The Social</h3>
-                <p>Learn natural conversation and body language that builds genuine attraction.</p>
-            </div>
-            <div class="card">
-                <h3>The Digital</h3>
-                <p>Optimize your online presence to showcase your best, most authentic self.</p>
-            </div>
-        </div>
-    </section>
+        </aside>
 
-    <section id="review" class="interactive">
-        <h2>Quick Profile Check</h2>
-        <p>Enter your current dating bio below for an instant "Vibe Check."</p>
-        <textarea id="bioInput" placeholder="Paste your bio here..."></textarea>
-        <button onclick="analyzeBio()" class="btn">Analyze Bio</button>
-        <div id="feedback" class="feedback-box"></div>
-    </section>
+        <main class="main-content">
+            <header class="portal-header">
+                <h2>Welcome back, <span class="accent">Lead.</span></h2>
+                <div class="xp-display">XP: <span id="userXP">1250</span></div>
+            </header>
 
-    <footer>
-        <p>&copy; 2026 Modern Lead Studio. Elevate your standard.</p>
-    </footer>
+            <section class="mission-board">
+                <h3>Active Missions</h3>
+                <div class="mission-grid">
+                    <div class="mission-card bronze">
+                        <h3>The Environment Hook</h3>
+                        <p>Make one observational comment to a stranger. +50 XP.</p>
+                        <button class="btn-mission" onclick="completeMission(this, 50)">Complete</button>
+                    </div>
+                    <div class="mission-card gold-rank">
+                        <h3>The Lead Closer</h3>
+                        <p>Ask for a contact after a success. +500 XP.</p>
+                        <button class="btn-mission" onclick="completeMission(this, 500)">Complete</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="leaderboard-section">
+                <h3>Weekly Rankings</h3>
+                <div class="leaderboard-table">
+                    <div class="leaderboard-row top-3"><span>01</span><span>@Titan_Vance</span><span>42 Missions</span></div>
+                    <div class="user-current-rank"><span>84</span><span>You (John Doe)</span><span id="userMissions">12 Missions</span></div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div id="legal-page" style="display:none;" class="legal-content">
+        <h1>Legal & Privacy</h1>
+        <p>This is a professional coaching platform. No results are guaranteed. Members must respect community guidelines. No refunds on digital access once consumed.</p>
+        <button class="btn-outline" onclick="showPage('landing')">Back to Site</button>
+    </div>
 
     <script src="script.js"></script>
 </body>
